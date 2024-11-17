@@ -9,9 +9,10 @@ COPY . .
 
 COPY .npmrc .
 
-#RUN npm install -g pnpm
+RUN npm install -g pnpm
 RUN npm install -g npm@10.9.0
 RUN pnpm install --frozen-lockfile
+RUN pnpm nx reset
 RUN pnpm build
 
 FROM base AS installer
