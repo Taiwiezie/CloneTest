@@ -7,7 +7,10 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install -g pnpm
+COPY .npmrc .
+
+#RUN npm install -g pnpm
+RUN npm install -g npm@10.9.0
 RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
